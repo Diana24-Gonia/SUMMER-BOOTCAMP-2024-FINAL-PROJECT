@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulob Hayang Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #808D7C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #DFD3C3;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            color: #2E236C;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #399918;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .results h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .results p, .results h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kulob Hayang Game</h1>
+        <form method="post">
+            <input type="text" name="choice" placeholder="Enter 'kulob' or 'hayang'" required>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if P1 %}
+        <div class="results">
+            <h2>Results</h2>
+            <p>P1 chose: {{ P1 }}</p>
+            <p>Computer 2 chose: {{ C2 }}</p>
+            <p>Computer 3 chose: {{ C3 }}</p>
+            <h3>{{ winner }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
